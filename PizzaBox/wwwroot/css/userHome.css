@@ -1,0 +1,73 @@
+.heading {
+    list-style-type: none;
+    margin-top: 2%;
+    
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .heading-list {
+    float: left;
+  }
+  
+  .heading-list a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .heading-list a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: #4cafaa;
+  }
+  .active:hover{
+      background-color: #75c0bc;
+  }
+  
+  .title{       
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-align: center;
+    margin-left: 25%;
+  }
+  
+  .leftContainer{
+      flex: 0 0 25%;
+      background-color: rgb(119, 118, 118);
+      padding: 10px;
+      
+  }
+  
+  .mainContainer{
+      flex: 1;
+      background-color: rgb(223, 233, 238);
+      padding: 10px;
+      
+  }
+  
+  section{
+      display: flex;
+  }
+  
+  .container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #cheeseImg{
+    opacity: 0.2;
+  }

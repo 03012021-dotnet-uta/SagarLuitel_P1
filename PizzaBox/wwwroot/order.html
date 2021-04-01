@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <form id="orderCart" method="Post">
+        <label for="storeList">Select A Store:</label>
+        <select name="store" id="stores">
+
+        </select>
+        <br>
+        <br>
+        <label for="storeList">Select A Pizza:</label>
+        <select name="pizza" id="pizzas">
+            
+        </select>
+        <br>
+        <br>
+        <label for="storeList">Choose A Size:</label>
+        <select name="size" id="sizes">
+            
+        </select>
+        <br>
+        <br>
+        <label for="storeList">What Kinds Of Crust Would You Like: </label>
+        <select name="crust" id="crusts">
+            
+        </select>
+        <br>
+        <br>
+        <label for="topping">Select Up To 5 Toppings</label><br>
+        <div id = "toppings">
+
+        </div>
+        <br>
+
+        <!-- <input type="submit" id = "addToCart" value="Add To Cart"> -->
+        <input type="submit" id = "orderNow" value="Done">
+    </form>
+
+    <div id="displayOrder">
+
+    </div>
+
+    <script src="js/order.js"></script>
+</body>
+
+</html>

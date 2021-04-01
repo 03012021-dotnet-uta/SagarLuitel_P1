@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span id="successMsg"></span>
+    <div class="topping">
+        <h3>Topping</h3>
+        <form id="topping" method="POST">
+            <label for="toppingName"> Topping Name: </label>
+            <input type="text" name="toppingName" placeholder="Topping" required> <br><br>
+            <label for="toppingPrice">Price: </label>
+            $ <input type="text" name="toppingPrice" placeholder="1.20" required><br><br>
+
+            <input type="submit" value="Add New Topping Type">
+            
+        </form>
+    </div>
+    
+    <hr>
+    <div class="size">
+        <h3>Size</h3>
+        <form id="size" method="POST">
+            <label for="sizeName"> Size Name: </label>
+            <input type="text" name="sizeName" placeholder="small" required> <br><br>
+            <label for="sizePrice">Price: </label>
+            $ <input type="text" name="sizePrice" placeholder="1.20" required><br><br>
+
+            <input type="submit" value="Add New Size">
+        </form>
+    </div>
+    <hr>
+    <div class="crust">
+        <h3>Crust</h3>
+        <form id="crust" method="POST">
+            <label for="crustName"> Crust Name: </label>
+            <input type="text" name="crustName" placeholder="Thick" required> <br><br>
+            <label for="crustPrice">Price: </label>
+            $ <input type="text" name="crustPrice" placeholder="1.30" required><br><br>
+
+            <input type="submit" value="Add New Crust Type">
+        </form>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="pizza">
+        <h3>Pizza</h3>
+        <form id="pizza" method="POST">
+            <label for="pizzaName"> Crust Name: </label>
+            <input type="text" name="pizzaName" placeholder=" Cheese Pizza" required> <br><br>
+            <input type="submit" value="Add New Pizza">
+        </form>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="store">
+        <h3>Uploading Store</h3>
+        <form id="store" method="POST">
+            <label for="storeName"> Store Name: </label>
+            <input type="text" name="storeName" placeholder="Store Name" required> <br><br>
+            <label for="storeLocation">Location: </label>
+            <input type="text" name="storeLocation" placeholder="City, State" required><br><br>
+            <label for="storeAddress">Address: </label>
+            <input type="text" name="storeAddress" placeholder=" 123 main st " required><br><br>
+            <label for="storePhone">Phone: </label>
+            <input type="text" name="storePhone" placeholder="123467890" required><br><br>
+
+            <input type="submit" value="Add A New Store">
+        </form>
+    </div>
+
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>
