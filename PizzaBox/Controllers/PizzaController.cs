@@ -37,12 +37,13 @@ namespace PizzaBox.Controllers
             return newCrust;
         }
 
-        [HttpPost("seedPizza")]
-        public ActionResult<Pizza> Register([FromBody] Pizza pizza){
-            
-            Console.WriteLine($"YAY! we made it to the C# side with. ");
 
-            Pizza newPizza = _pizzaBusiness.seedPizza(pizza); 
+        [HttpPost("seedPizza/{storeId}/{numOfPizza}")]
+        public ActionResult<Pizza> Register([FromBody] Pizza pizza, int storeId, int numOfPizza){
+            
+            Console.WriteLine($"YAY! we made it to the C# side with. " + storeId);
+
+            Pizza newPizza = _pizzaBusiness.seedPizza(pizza, storeId, numOfPizza); 
             return newPizza;
         }
 
@@ -71,7 +72,7 @@ namespace PizzaBox.Controllers
 
         [HttpGet("getAllPizza")]
         public ActionResult<List<Pizza>> getAllPizza(){
-            Console.WriteLine("got here");
+            //Console.WriteLine("got here");
             List<Pizza> allPizza = _pizzaBusiness.getPizzas();
 
             return allPizza;
@@ -79,7 +80,7 @@ namespace PizzaBox.Controllers
 
         [HttpGet("getAllTopping")]
         public ActionResult<List<Topping>> getAllTopping(){
-            Console.WriteLine("got here");
+            //Console.WriteLine("got here");
             List<Topping> allTopping = _pizzaBusiness.getTopping();
 
             return allTopping;
@@ -87,7 +88,7 @@ namespace PizzaBox.Controllers
 
         [HttpGet("getAllCrust")]
         public ActionResult<List<Crust>> getAllCrust(){
-            Console.WriteLine("got here");
+            //Console.WriteLine("got here");
             List<Crust> allCrust = _pizzaBusiness.getCrust();
 
             return allCrust;
@@ -95,7 +96,7 @@ namespace PizzaBox.Controllers
 
         [HttpGet("getAllSize")]
         public ActionResult<List<Size>> getAllSize(){
-            Console.WriteLine("got here");
+            //Console.WriteLine("got here");
             List<Size> allSize = _pizzaBusiness.getSize();
 
             return allSize;
@@ -113,12 +114,12 @@ namespace PizzaBox.Controllers
         }
 
         [HttpPost("postCart")]
-        public ActionResult<List<Order>> postOrder([FromBody] myCart mycart){
-            Console.WriteLine("here: " + mycart.orderList[0].crustId);
+        public ActionResult<Order> postOrder([FromBody] List<RawOrder> mycart){
+            Console.WriteLine("here: " + mycart[0].pizzaId);
 
-            myCart newCart = _pizzaBusiness.postCart(mycart);
+            Order newOrder = _pizzaBusiness.postCart(mycart);
 
-            return null;
+            return newOrder;
         }
 
     }

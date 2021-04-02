@@ -1,3 +1,18 @@
+const user = JSON.parse(localStorage.getItem('user'));
+console.log(user)
+
+const cart1 = JSON.parse(localStorage.getItem('order'));
+var i = 0;
+for (const key in cart1) {
+  if (Object.hasOwnProperty.call(cart1, key)) {
+    i++;
+  }
+}
+if(!user){
+  location = "https://localhost:5001/login.html"; 
+}
+document.getElementById("userInfoDisplay").innerHTML = user.firstName;
+document.getElementById("mycart").innerHTML = `Cart ${i}`
 
 const stores = document.getElementById('stores');
 const pizzas = document.getElementById('pizzas');
@@ -199,7 +214,7 @@ form.addEventListener('submit', (event) => {
     });
     
     console.log(toppingList)
-    userId = "1";
+     
     const formData = {
       storeId: form.store.value,
       pizzaId: form.pizza.value,
@@ -207,7 +222,7 @@ form.addEventListener('submit', (event) => {
       sizeId: sizeid,
       crustId: crustid,
       Total: total,
-      userId: userId
+      userId: user.userId
     }
 
     console.log(formData);
@@ -219,31 +234,37 @@ form.addEventListener('submit', (event) => {
     // console.log(formData.phone);
 
     let htmlA = `<button type="button" id="now">CheckOur Now</button>
+                  &emsp;
                  <button type="button" id="later">Order More</button>`
 
     displayOrder.innerHTML = htmlA;
 
-    document.getElementById("later").addEventListener("click", orderLater);
+    const laterbutton = document.getElementById("later");
+    laterbutton.addEventListener("click", orderLater);
+    const nowbutton = document.getElementById("now");
     
     arrFormdata.push(formData)
     console.log(arrFormdata[0])
     localStorage.setItem("order",  JSON.stringify(arrFormdata));
-      var x = JSON.parse(localStorage.getItem("order"))
+    
+    var x = JSON.parse(localStorage.getItem("order"))
 
     function orderLater() {
-      console.log(x)
+      //console.log(x)
       form.reset();
+      laterbutton.style.display = "none";
+      nowbutton.style.display = "none";
       return;
     }
 
-    document.getElementById("now").addEventListener("click", (event) =>{
-    fetch('api/pizza/postOrder', {
+    nowbutton.addEventListener("click", (event) =>{
+    fetch('api/pizza/postCart', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type':'application/json'
         },
-        body: JSON.stringify( JSON.parse(localStorage.getItem("order")))
+        body: JSON.stringify(x)
         })
         .then(response => {
           if (!response.ok) {
@@ -253,10 +274,8 @@ form.addEventListener('submit', (event) => {
             return response.json();
         })
         .then((jsonResponse) => {
-          //responseDiv[0].textContent = jsonResponse.name + ' ' + jsonResponse.email;
           console.log(jsonResponse);
-          
-          //return window.location.assign("https://localhost:5001/userHome.html/email=" + `${jsonResponse.email}`);  //* xxx****/
+          form.reset();
         })
         .catch(function(err) {  
             console.log('Failed to fetch page: ', err);  
@@ -265,3 +284,18 @@ form.addEventListener('submit', (event) => {
     
 
 })
+
+
+
+/**
+ * logout --------------------------------------------------
+ */
+ const logout = document.getElementById('logout');
+ logout.addEventListener('click', (event) => {
+     event.preventDefault(); 
+ 
+     localStorage.removeItem('user');
+     localStorage.removeItem('order'); // add cart to cart list
+     location = "https://localhost:5001"; 
+ })
+ 

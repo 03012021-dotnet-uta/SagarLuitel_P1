@@ -34,6 +34,7 @@ namespace PizzaBox
             services.AddScoped<PizzaBoxDbContext>();
             services.AddScoped<UserMethods>();// THIS REGISTERS THE CLASS WITH THE DEPENDENCY INJECTION SYSTEM.
             services.AddScoped<PizzaBoxRepo>();// THIS REGISTERS THE CLASS WITH THE DEPENDENCY INJECTION SYSTEM.
+            services.AddScoped<userRepo>();
             services.AddScoped<PizzaMethods>();
 
             services.AddControllers();

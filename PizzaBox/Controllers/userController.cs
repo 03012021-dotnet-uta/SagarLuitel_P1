@@ -25,7 +25,12 @@ namespace PizzaBox.userController{
             this._userBusiness = business;
         }
 
-
+        /// <summary>
+        /// Takes a data from form (user) and returns registered user.
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost("register")]
         public ActionResult<User> Register([FromBody] RawUser user){
             
@@ -39,6 +44,12 @@ namespace PizzaBox.userController{
             return newUser;
         }
 
+        /// <summary>
+        /// Takes a data from form (user) and returns the logged in user.
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost("login")]
         public ActionResult<User> Login([FromBody] loginUser user){   
             
@@ -53,7 +64,27 @@ namespace PizzaBox.userController{
 
         }
 
+        /// <summary>
+        /// Takes a userid and returns list of all order by that user.
+        /// 
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        [HttpGet("getUserOrder/{UserId}")]
+        public ActionResult<List<Order>> gerUserOrder(int UserId){
+            List<Order> userOrders = _userBusiness.getOrderByUserId(UserId);
+
+            return userOrders;
+        }
+
+        /// <summary>
+        /// retunrs all user
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("getAllUser")]
+        public ActionResult<List<User>> getAllUser(){
+            return _userBusiness.getAllUser();
+        }
+
     }
-
-
 }

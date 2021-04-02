@@ -53,8 +53,15 @@
     <div class="pizza">
         <h3>Pizza</h3>
         <form id="pizza" method="POST">
+            <label for="storeList">Select A Store:</label>
+            <select name="store" id="stores">
+
+            </select>
+            <br><br>
             <label for="pizzaName"> Crust Name: </label>
             <input type="text" name="pizzaName" placeholder=" Cheese Pizza" required> <br><br>
+            <label for="pizzaNum"> Number Of Pizza: </label>
+            <input type="text" name="pizzaNum" placeholder=" 10 " required> <br><br>
             <input type="submit" value="Add New Pizza">
         </form>
     </div>

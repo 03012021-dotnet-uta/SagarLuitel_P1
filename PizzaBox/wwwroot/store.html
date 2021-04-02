@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/store.css">
+    <title>Document</title>
+</head>
+<body>
+    <ul class= "heading">
+        <li class= "heading-list"><a href="./index.html">Home</a></li>
+        <li class= "heading-list"><a href="./myorder.html">MyOrders</a></li>
+        <li class= "heading-list"><a href="#about">Cart</a></li>
+        <li class= "heading-list"><a href="#Menu">Menu</a></li>
+        <li class= "heading-list title">PizzaBox</li>
+        <li class= "heading-list" style="float:right"><a class="active" id="userInfoDisplay" href="./userProfile.html"> </a></li>
+        <li class= "heading-list" style="float:right"><a class="active" id="logout" href="#logout">Logout</a></li>
+    </ul>
+
+    <div>
+        <h4>Order History</h4>
+        <ul id="displayInven">
+
+        </ul>
+    </div>
+        <h4>Inventory List</h4>
+        <ul id="displayOrder">
+
+        </ul>
+    <div>
+        <form id="searchBar">
+            <input type="text" placeholder="Search User By Name.." name="search">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <div id="userInfo">
+
+    </div>
+    <script src="js/store.js"></script>
+
+</body>
+</html>

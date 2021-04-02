@@ -35,5 +35,32 @@ namespace PizzaBox.Controllers
 
             return allStroe;
         } 
+
+        /// <summary>
+        /// Takes a storeId and returns all the list of Order of that store.
+        /// 
+        /// </summary>
+        /// <param name="storeId"></param>
+        /// <returns></returns>
+        [HttpGet("getAllStoreOrders/{storeId}")]
+        public ActionResult<List<Order>> getAllStoreOrders(int storeId){
+
+            List<Order> newOrderList = _pizzaBusiness.getAllStoreOrders(storeId);
+            return newOrderList;
+        }
+
+        /// <summary>
+        /// Takes a storeId and returns all the list of inventory of that store.
+        /// 
+        /// </summary>
+        /// <param name="storeId"></param>
+        /// <returns></returns>
+        [HttpGet("getAllStoreInven/{storeId}")]
+        public ActionResult<List<Inventory>> getAllStoreInven(int storeId){
+
+             List<Inventory> newInventoryList = _pizzaBusiness.getAllStoreInven(storeId);
+            return newInventoryList;
+            
+        }
     }
 }

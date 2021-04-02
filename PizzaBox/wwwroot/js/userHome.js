@@ -24,7 +24,7 @@ const storeList = document.getElementById("storeList");
     let htmlA = '';
     res.forEach(store => {
        
-        htmlA += `<li>${store.storeName}</li>
+        htmlA += `<li><a href="./store.html?id=${store.storeId}/">${store.storeName}</a></li>
                         <span>${store.storeLocation}</span><br><br>`;
         
     });

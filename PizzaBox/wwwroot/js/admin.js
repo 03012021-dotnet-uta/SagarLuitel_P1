@@ -1,5 +1,35 @@
 const toppingForm = document.getElementById('topping'); // topping form
 
+function getAllStore() {
+  // a fetch request is, by default, a GET request and doesn't need a body. 
+fetch("api/store/getAllStore")
+.then(response => {
+if (!response.ok) {
+  throw new Error(`Network response was not ok (${response.status})`);
+}
+else       // When the page is loaded convert it to text
+  return response.json();
+})
+.then((jsonResponse) => {
+console.log(jsonResponse);
+return jsonResponse;
+})
+.then(res => {
+//save the Person to localStorage
+localStorage.setItem('Stores', res);
+let htmlA;
+    res.forEach(store => {
+        htmlA += `<option value=${store.storeId}>${store.storeName}</option>`
+    });
+    stores.innerHTML = htmlA;
+})
+.catch(function(err) {  
+  console.log('Failed to fetch page: ', err);  
+});
+}
+
+getAllStore();
+
 toppingForm.addEventListener('submit', (event) => {
     event.preventDefault();
     /**create a string[] to send to the API in the body */
@@ -212,11 +242,9 @@ const pizzaForm = document.getElementById('pizza'); // store form
 pizzaForm.addEventListener('submit', (event) => {
     event.preventDefault();
     /**create a string[] to send to the API in the body */
-    console.log("here")
+    console.log("here "+ pizzaForm.store.value)
     const formData = {
       Name: pizzaForm.pizzaName.value.trim(),
-      
-
     }
 
     if(formData.Name === "" ){
@@ -224,7 +252,7 @@ pizzaForm.addEventListener('submit', (event) => {
     }
 
 
-    fetch('api/pizza/seedPizza', {
+    fetch(`api/pizza/seedPizza/${pizzaForm.store.value}/${pizzaForm.pizzaNum.value.trim()}`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -254,3 +282,4 @@ pizzaForm.addEventListener('submit', (event) => {
             console.log('Failed to fetch page: ', err);  
         });
 })
+
