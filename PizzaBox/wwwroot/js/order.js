@@ -260,7 +260,7 @@ form.addEventListener('submit', (event) => {
       Total: total,
       userId: user.userId
     }
-
+    confirm(`Your Total is: ${formData.Total}`);
     console.log(formData);
     // if(formData.email === "" || formData.name === "" || formData.phone === "" || formData.password === ""){
     //     return;
@@ -293,7 +293,10 @@ form.addEventListener('submit', (event) => {
       return;
     }
 
+
     nowbutton.addEventListener("click", (event) =>{
+    event.preventDefault();
+  
     fetch('api/pizza/postCart', {
         method: 'POST',
         headers: {

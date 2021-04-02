@@ -7,9 +7,8 @@ namespace models
 	{
 		[Key]
 		public int InventoryId { get; set; } 
-		public int CPizzaId { get; set; }
+		public int PizzaId { get; set; }
 		public int StoreId { get; set; }
-        public string numOfPizza { get; set; }
-		      
+        public int numOfPizza { get; set; }
 	}
 }

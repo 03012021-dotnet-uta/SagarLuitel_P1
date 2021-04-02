@@ -43,7 +43,7 @@ namespace models
         // }
         public CustomPizza(string name)
         {   
-            Name = "Custome made " + name;
+            Name = name;
         }
 
     }

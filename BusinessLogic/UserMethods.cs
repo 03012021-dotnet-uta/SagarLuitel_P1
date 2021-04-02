@@ -1,6 +1,7 @@
 using System;
 using Repository;
 using models;
+using System.Collections.Generic;
 
 namespace BusinessLogic
 {
@@ -10,8 +11,12 @@ namespace BusinessLogic
 
         private readonly PizzaBoxRepo _repo;
 
-        public UserMethods(PizzaBoxRepo repo){
+        private readonly userRepo _repoUser;
+
+        public UserMethods(PizzaBoxRepo repo, userRepo repoUser){
             this._repo = repo;
+            this._repoUser = repoUser;
+
         }
         public User userRegister(RawUser user){
 
@@ -63,6 +68,36 @@ namespace BusinessLogic
             //return null;
         }
 
+
+        public List<Order> getOrderByUserId(int userId){
+            var listOrder = _repoUser.getAllOrder();
+
+            var userOrder = new List<Order>();
+            foreach (var order in listOrder)
+            {
+                if (order.UserId == userId)
+                {
+                    userOrder.Add(order);
+                }
+            }
+
+            return userOrder;
+        }
+
+        /// <summary>
+        /// returns all user
+        /// </summary>
+        /// <returns></returns>
+        public List<User> getAllUser(){
+            return _repoUser.getAllUser();
+        }
+
+        /// <summary>
+        /// gets two arrays and compire them and return true or false
+        /// </summary>
+        /// <param name="arr1"></param>
+        /// <param name="arr2"></param>
+        /// <returns></returns>
         private bool CompareTwoHashes(byte[] arr1, byte[] arr2)
         {
             if (arr1.Length != arr2.Length)

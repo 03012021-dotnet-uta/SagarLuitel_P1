@@ -30,7 +30,7 @@ namespace Repository
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			 optionsBuilder.UseSqlServer(@"Server=127.0.0.1,1433;Database=myPizzaBoxDb;User Id=sa;Password=D3goldhap!;");
+			 optionsBuilder.UseSqlServer(@"Server=127.0.0.1,1433;Database=myPizzaBoxDb;User Id=sa;Password=xxxxxxxxxx!;");
             // @“Server=127.0.0.1;Database=Master;User Id=SA;Password=1Secure*Password1;”
 		}
 	}

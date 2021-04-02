@@ -93,6 +93,11 @@ namespace Repository
             return _dbContext.Store.FirstOrDefault(s => s.StoreId == newStore.StoreId);// default is null
         }
 
+        public void seedInventory(Inventory newIinven){
+            var newIinven1 = _dbContext.Inventory.Add(newIinven);// 
+            _dbContext.SaveChanges();
+        }
+
         public List<Store> getAllStore(){
 
             return _dbContext.Store.ToList();
@@ -147,6 +152,30 @@ namespace Repository
         public void postAPizza(CustomPizza pizza){
             var newAP1 = _dbContext.CustomPizza.Add(pizza);// 
             _dbContext.SaveChanges();
+        }
+
+        /// <summary>
+        /// return list of all inventory of store by id 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<Inventory> getAllStoreInven(){
+
+            return _dbContext.Inventory.ToList();
+        }
+
+        public Inventory updateInventory(int id){
+            Inventory inv = _dbContext.Inventory.FirstOrDefault(x => x.PizzaId == id);
+            
+            if(inv.numOfPizza == 0){
+                return null;
+            }   
+            inv.numOfPizza = inv.numOfPizza - 1;
+            // var newAP1 = _dbContext.Inventory.Add(inv);// 
+            // _dbContext.Attach(Inventory);
+            // _dbContext.Inventory.Property("FirstName").IsModified = true;
+            _dbContext.SaveChanges();
+            return inv;
         }
     }
 }
