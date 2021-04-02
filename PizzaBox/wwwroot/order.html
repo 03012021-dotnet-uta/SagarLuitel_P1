@@ -14,12 +14,13 @@
         <li class= "heading-list"><a href="./index.html">Home</a></li>
         <li class= "heading-list"><a href="./myorder.html">MyOrders</a></li>
         <li class= "heading-list"><a id="mycart" href="#about">Cart</a></li>
-        <li class= "heading-list"><a href="#Menu">Menu</a></li>
+        <li class= "heading-list"><a href="./menu.html">Menu</a></li>
         <li class= "heading-list title">PizzaBox</li>
-        <li class= "heading-list" style="float:right"><a class="active" id="userInfoDisplay" href="./userProfile.html"> </a></li>
+        <li class= "heading-list" style="float:right"><a class="active" id="userInfoDisplay" href="./userHome.html"> </a></li>
         <li class= "heading-list" style="float:right"><a class="active" id="logout" href="#logout">Logout</a></li>
 
     </ul>
+    <div id="successMsg"></div>
     <form id="orderCart" method="Post">
         <label for="storeList">Select A Store:</label>
         <select name="store" id="stores">
@@ -27,8 +28,8 @@
         </select>
         <br>
         <br>
-        <label for="storeList">Select A Pizza:</label>
-        <select name="pizza" id="pizzas">
+        <label for="storeList" >Select A Pizza:</label>
+        <select name="pizza" id="pizzas" onchange="myFunction()">
             
         </select>
         <br>
@@ -45,7 +46,7 @@
         </select>
         <br>
         <br>
-        <label for="topping">Select Up To 5 Toppings</label><br>
+        <label for="topping" id="topp">Select Up To 5 Toppings</label><br>
         <div id = "toppings">
 
         </div>

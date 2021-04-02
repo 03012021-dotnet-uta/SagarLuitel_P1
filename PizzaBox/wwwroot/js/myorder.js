@@ -11,6 +11,7 @@ for (const key in cart1) {
 if(!user){
   location = "https://localhost:5001/login.html"; 
 }
+
 document.getElementById("userInfoDisplay").innerHTML = user.firstName;
 document.getElementById("mycart").innerHTML = `Cart ${i}`;
 const showlistofOrder = document.getElementById("myorderList");
@@ -48,3 +49,18 @@ const showlistofOrder = document.getElementById("myorderList");
         });
   
 })();
+
+/**
+ * logout --------------------------------------------------
+ */
+ const logout = document.getElementById('logout');
+ logout.addEventListener('click', (event) => {
+     event.preventDefault(); 
+ 
+     sessionStorage.clear();
+     localStorage.clear();
+ 
+     location = "https://localhost:5001"; 
+ })
+ 
+ 

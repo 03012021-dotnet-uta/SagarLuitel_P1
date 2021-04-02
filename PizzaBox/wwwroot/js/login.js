@@ -43,10 +43,9 @@ signupForm.addEventListener('submit', (event) => {
             return response.json();
         })
         .then((jsonResponse) => {
-          //responseDiv[0].textContent = jsonResponse.name + ' ' + jsonResponse.email;
           console.log(jsonResponse);
-          
-          //return window.location.assign("https://localhost:5001/userHome.html/email=" + `${jsonResponse.email}`);  //* xxx****/
+          localStorage.setItem('user', JSON.stringify(jsonResponse));
+          location = "https://localhost:5001/userHome.html"; 
         })
         .catch(function(err) {  
             console.log('Failed to fetch page: ', err);  

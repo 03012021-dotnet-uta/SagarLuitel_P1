@@ -46,7 +46,8 @@ const logout = document.getElementById('logout');
 logout.addEventListener('click', (event) => {
     event.preventDefault(); 
 
-    localStorage.removeItem('user');
+    sessionStorage.clear();
+    localStorage.clear();
 
     location = "https://localhost:5001"; 
 })

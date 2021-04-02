@@ -110,15 +110,22 @@ namespace PizzaBox.Controllers
 
             Order newOrder = _pizzaBusiness.postOrder(myorder);
 
-            return null;
+            return newOrder;
         }
 
+        /// <summary>
+        /// post the order
+        /// </summary>
+        /// <param name="mycart"></param>
+        /// <returns></returns>
         [HttpPost("postCart")]
         public ActionResult<Order> postOrder([FromBody] List<RawOrder> mycart){
             Console.WriteLine("here: " + mycart[0].pizzaId);
 
             Order newOrder = _pizzaBusiness.postCart(mycart);
-
+            if(newOrder == null){
+                return null;
+            }
             return newOrder;
         }
 
