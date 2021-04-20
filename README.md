@@ -19,6 +19,7 @@
 
 #### AS A User
 * Register & Login
+* Add pizzas to cart
 * Place orders at store locations
 * See order history 
 
