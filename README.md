@@ -20,14 +20,14 @@
 #### AS A User
 * Register & Login
 * Place orders at store locations
-* See all his/her order history 
-* Search customers by name
+* See order history 
 
 #### AS A Store
 * Display all order history of a store location
+* Search customers by name 
 * Add new Store Location
 * Add new type of pizza
-* Add new Topping  
+* Add new Topping 
 * Store Inventory
 
 ### To-do List:
