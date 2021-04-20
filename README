@@ -1,15 +1,18 @@
-# Pizza Box
+ # Pizza Box
 
-# Project Description
+ ## Project Description
 Pizza Box is a pizza ordering web application. It is an application where user can regester, login, select a store locating and
 order a pizza. User alos have optins to order one pizza or add pizzas to a cart then checkout their carts afterwords.
 The applicatoin alos includes admin function to add new store location and new typess of pizzas.  
 
-# Technologies Used
-  . ASP.Net Web API,
-  . EF Code First
+## Technologies Used
+  ASP.Net WebApi - Version: 5.0.103
+  Entity Framework - code first
+  MSSQL using Azure Data Studio
+  VS Code - Version: 1.55.2 (Universal)
+  C#, HTML/CSS/Javascript 
 
-# Features
+## Features
 place orders at store locations
 add a new customer
 search customers by name
@@ -21,12 +24,8 @@ exception handling
 persistent data (no prices, customers, order history, store locations, etc. hardcoded in C# or JS)
 logging where appropriate
 
-To-do List:
- order history can be sorted by earliest, latest, cheapest, most expensive, etc)
- get a suggested order for a customer based on his order history)
- display statistics based on order history)
- asynchronous network & file I/O)
-
-design
-use EF Core (either database-first approach or code-first approach)
-use a SQL DB in third normal form (3NF)
+ ### To-do List:
+  order history can be sorted by earliest, latest, cheapest, most expensive, etc
+  get a suggested order for a customer based on his order history
+  display statistics based on order history
+  asynchronous network & file I/O
